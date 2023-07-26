@@ -1,0 +1,27 @@
+<div class="author">
+    <h1 class="author_heading">Toni Puharić</h1>
+    <p class="author_body">Softverski inžinjer.</p>
+
+</div>
+
+<img src="/img/slika.jpg" alt="Slika stranice" class="slika" width="750" height="428">
+
+<section class="articles">
+    <h2 class="articles_heading">Najnovije objave</h2>
+
+
+    <ul class="article-ul">
+        <% data.forEach(post => { %>
+        <li>
+            <a href="/post/<%= post._id %>">
+                <span><%= post.title %></span>
+                <span class="article-list_date"><%= post.createdAt.toDateString() %></span>
+            </a>  
+        </li>
+        <% }) %>
+    </ul>
+
+    <% if (nextPage !== null) { %>
+        <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+      <% } %>
+</section>
